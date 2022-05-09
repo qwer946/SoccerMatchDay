@@ -18,5 +18,6 @@
   justify-content: center;
 }
 
-#goal {
+#goals {
+  margin: auto;
 }
