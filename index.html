@@ -12,7 +12,7 @@
   <body>
     <!-- I am going to put the match day in the middle and put 2 h4 in each corner by using css, and put the timer in the middle of home and away. -->
     <!-- "container" , it puts all of my words in a box" -->
-    <div class="container">
+    <div id="container" class="container">
       <h1 class="matchz">Match Day</h1>
       <!-- "team-box" is a seprate box inside  of our big div that we put in teams and timer -->
       <div class="teams-box">
@@ -21,21 +21,21 @@
         <h4>Away</h4>
       </div>
       <!-- we are going to create another box inside our big container div and get information on our home team name and img. -->
-      <div class="teams-box">
+      <div id="template" class="teams-box">
         <div class="club">
-          <img src="" alt="" id="homeBadge" />
-          <p id="homeClub">Club Name</p>
+          <img src="" alt="" class="homeBadge" />
+          <p class="homeClub">Club Name</p>
         </div>
-        <p id="goals">5 - 3</p>
+        <p class="goals">5 - 3</p>
         <!-- We repeat the code for the away name and badge picture inside of our div "team-box". -->
         <div class="club">
-          <img src="" alt="" id="awayBadge" />
-          <p id="awayClub">Club Name</p>
+          <img src="" alt="" class="awayBadge" />
+          <p class="awayClub">Club Name</p>
         </div>
       </div>
-      <hr />
+      <!-- <hr />
 
-      <div class="clubs-table" id="clubTable"></div>
+      <div class="clubs-table" id="clubTable"></div> -->
     </div>
   </body>
 </html>

@@ -26,3 +26,14 @@ body {
 #goals {
   margin: auto;
 }
+
+h1,
+h4,
+p {
+  color: white;
+}
+
+.homeBadge,
+.awayBadge {
+  /* style so images are small and the same size */
+}

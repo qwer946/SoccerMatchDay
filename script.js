@@ -1,8 +1,4 @@
-$("h1").css("color", "white");
-
-$("h4").css("color", "white");
-
-$("p").css("color", "white");
+let container = document.getElementById("container");
 
 const settings = {
   async: true,
@@ -14,13 +10,14 @@ const settings = {
     "X-RapidAPI-Key": "71be4c9ca8mshfdcb95a793439fap16331cjsn50e00623cedf",
   },
 };
-// how do we get the data from this?
+//that settings is getting information on the API called (body).
 $.ajax(settings).done(function (body) {
-  // most of your work in here
   console.log(body.response);
-
+  // what we need is to get the API called response, whats under response is what we need to make our fixtures.
   let fullData = body.response;
+  //  to make it easier we say full data instead of body.response
 
+  //  what we need to do is create a function that could list the team name score and logo.
   fullData.forEach(function (fixtureData) {
     let homeTeam = {
       name: fixtureData.teams.home.name,
@@ -36,6 +33,18 @@ $.ajax(settings).done(function (body) {
 
     let currentMin = fixtureData.fixture.status.elapsed;
 
+    addMatches(homeTeam, awayTeam, currentMin);
+
+    // after getting data from api. make it show up on webpage instead of just console log
+
+    // get whole document
+
+    // create element for each fixture
+
+    // populate that element with above parsed data, ie.. "awayTeam.name", "HomeTeam.logo"
+
+    // append that new element with the populated data to the document (hint: use .append(you element goes here))
+
     console.log(homeTeam);
     console.log(awayTeam);
     console.log("current time is " + currentMin + " \n");
@@ -43,3 +52,53 @@ $.ajax(settings).done(function (body) {
 });
 
 //  do we do let kickOff = settings
+function addMatches(homeTeam, awayTeam, currentMin) {
+  let fixtureHtml = document.getElementById("template").cloneNode(true);
+  fixtureHtml.removeAttribute("id");
+
+  let homeTeamLogo = fixtureHtml.querySelector(".homeBadge");
+  homeTeamLogo.setAttribute("src", homeTeam.logo);
+  let homeTeamName = fixtureHtml.querySelector(".homeClub");
+  homeTeamName.textContent = homeTeam.name;
+
+  let goals = fixtureHtml.querySelector(".goals");
+  goals.textContent = homeTeam.score + " - " + awayTeam.score;
+
+  let awayTeamLogo = fixtureHtml.querySelector(".awayBadge");
+  awayTeamLogo.setAttribute("src", awayTeam.logo);
+  let awayTeamName = fixtureHtml.querySelector(".awayClub");
+  awayTeamName.textContent = awayTeam.name;
+
+  console.log(fixtureHtml);
+
+  container.append(fixtureHtml);
+}
+
+function testPage() {
+  let testhomeTeam = {
+    name: "Abdiqani",
+    score: 10,
+    logo: "",
+  };
+
+  let testawayTeam = {
+    name: "Khalid",
+    score: 0,
+    logo: "",
+  };
+
+  console.log(testhomeTeam);
+  console.log(testawayTeam);
+
+  addMatches(testhomeTeam, testawayTeam, 77);
+
+  testhomeTeam.name = "Liverpool";
+  testhomeTeam.score = 5;
+
+  testawayTeam.name = "Arsenal";
+  testawayTeam.score = 7;
+
+  addMatches(testhomeTeam, testawayTeam, 55);
+}
+
+//testPage();
