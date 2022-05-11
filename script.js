@@ -20,7 +20,8 @@ $.ajax(settings).done(function (body) {
 
   //  what we need to do is create a function that could list the team name score and logo.
 
-  //   we loop through every single fixture, forEach fixture data (game), we are looking homeTeam information by accessing it by objects using teams.home.name.
+  //   we loop through every single fixture, forEach fixture data (game),
+  //   we are looking for homeTeam information by accessing it by objects using teams.home.name.
   fullData.forEach(function (fixtureData) {
     let homeTeam = {
       name: fixtureData.teams.home.name,
@@ -46,7 +47,7 @@ $.ajax(settings).done(function (body) {
 
     // populate that element with above parsed data, ie.. "awayTeam.name", "HomeTeam.logo"
 
-    // append that new element with the populated data to the document (hint: use .append(you element goes here))
+    // append that new element with the populated data to the document ( use .append(you element goes here))
     // this console is the ending it with the ajax.
     console.log(homeTeam);
     console.log(awayTeam);
@@ -56,10 +57,11 @@ $.ajax(settings).done(function (body) {
 
 //  we translate this to our webpage. we add a varaible and combine all hometeam,awayteam,and the timer.
 function addMatches(homeTeam, awayTeam, currentMin) {
-  //   we create our div template and create a copy of the template. I also removed Id because we cant have the 2 names that are same (templates)
+  //   we create our div template and create a copy of the template.
+  //   I also removed Id because we cant have the 2 names that are same (templates)
   let fixtureHtml = document.getElementById("template").cloneNode(true);
   fixtureHtml.removeAttribute("id");
-  // We created a varible called homeTeamLogo. We said go into the template called .homeBadge and put in a logo by setting up the attribe and putting the object. the TextContent is what we use to put it the website.
+  // We created a varible called homeTeamLogo. We said go into the template (div) called .homeBadge and put in a logo by setting up the attribe and putting the object in. the TextContent is what we use to put it the website.
   let homeTeamLogo = fixtureHtml.querySelector(".homeBadge");
   homeTeamLogo.setAttribute("src", homeTeam.logo);
   let homeTeamName = fixtureHtml.querySelector(".homeClub");
@@ -72,37 +74,39 @@ function addMatches(homeTeam, awayTeam, currentMin) {
   awayTeamLogo.setAttribute("src", awayTeam.logo);
   let awayTeamName = fixtureHtml.querySelector(".awayClub");
   awayTeamName.textContent = awayTeam.name;
+  let currentTim = fixtureHtml.querySelector(".timer");
+  currentTim.textContent = currentMin;
 
   console.log(fixtureHtml);
 
   container.append(fixtureHtml);
 }
 
-function testPage() {
-  let testhomeTeam = {
-    name: "Abdiqani",
-    score: 10,
-    logo: "",
-  };
+// function testPage() {
+//   let testhomeTeam = {
+//     name: "Ali",
+//     score: 10,
+//     logo: "",
+//   };
 
-  let testawayTeam = {
-    name: "Khalid",
-    score: 0,
-    logo: "",
-  };
+//   let testawayTeam = {
+//     name: "Khalid",
+//     score: 0,
+//     logo: "",
+//   };
 
-  console.log(testhomeTeam);
-  console.log(testawayTeam);
+//   console.log(testhomeTeam);
+//   console.log(testawayTeam);
 
-  addMatches(testhomeTeam, testawayTeam, 77);
+//   addMatches(testhomeTeam, testawayTeam, 77);
 
-  testhomeTeam.name = "Liverpool";
-  testhomeTeam.score = 5;
+//   testhomeTeam.name = "Liverpool";
+//   testhomeTeam.score = 5;
 
-  testawayTeam.name = "Arsenal";
-  testawayTeam.score = 7;
+//   testawayTeam.name = "Arsenal";
+//   testawayTeam.score = 7;
 
-  addMatches(testhomeTeam, testawayTeam, 55);
-}
+//   addMatches(testhomeTeam, testawayTeam, 55);
+// }
 
 //testPage();

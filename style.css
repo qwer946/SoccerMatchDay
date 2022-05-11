@@ -1,18 +1,22 @@
 body {
   background-image: url("https://images.unsplash.com/photo-1493038950213-29266628eb06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fHNvY2NlciUyMGZpZWxkLiUyMG5pZ2h0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
 }
 
 .container {
   width: 400px;
   margin-left: auto;
   margin-right: auto;
+  padding: 15px;
 }
 
 .teams-box {
   margin: 50px 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   flex-direction: row;
@@ -25,6 +29,7 @@ body {
 
 #goals {
   margin: auto;
+  text-align: center;
 }
 
 h1,
@@ -35,5 +40,20 @@ p {
 
 .homeBadge,
 .awayBadge {
-  /* style so images are small and the same size */
+  margin: auto;
+  height: 100px;
+  width: 100px;
+}
+
+#template {
+  width: 52px;
+  height: 52px;
+  text-align: center;
+}
+
+.timer {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  height: 10vh;
 }
