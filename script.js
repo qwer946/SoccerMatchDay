@@ -61,7 +61,8 @@ function addMatches(homeTeam, awayTeam, currentMin) {
   //   I also removed Id because we cant have the 2 names that are same (templates)
   let fixtureHtml = document.getElementById("template").cloneNode(true);
   fixtureHtml.removeAttribute("id");
-  // We created a varible called homeTeamLogo. We said go into the template (div) called .homeBadge and put in a logo by setting up the attribe and putting the object in. the TextContent is what we use to put it the website.
+  // We created a varible called homeTeamLogo. We said go into the template (div) called .homeBadge and
+  //  put in a logo by setting up the attribe and putting the object in. the TextContent is what we use to put it the website.
   let homeTeamLogo = fixtureHtml.querySelector(".homeBadge");
   homeTeamLogo.setAttribute("src", homeTeam.logo);
   let homeTeamName = fixtureHtml.querySelector(".homeClub");
